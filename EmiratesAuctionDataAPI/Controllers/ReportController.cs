@@ -28,5 +28,12 @@ namespace EmiratesAuctionDataAPI.Controllers
             var settlementReport = await _reportService.GetPaymentSettlementReport(request.FromDate.Value, request.ToDate.Value);
             return Ok(settlementReport);
         }
+
+        [HttpPost("report-logs")]
+        public async Task<IActionResult> GetReportsLogs()
+        {
+            var logsReports = await _reportService.GetReportLogs();
+            return Ok(logsReports);
+        }
     }
 }

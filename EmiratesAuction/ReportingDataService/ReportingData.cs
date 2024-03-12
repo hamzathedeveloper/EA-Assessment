@@ -38,6 +38,18 @@ namespace EmiratesAuction.ReportingDataService
                 throw;
             }
         }
+        public async Task<List<LogReport>> GetLogReports()
+        {
+            try
+            {
+                return await _data.GetReportLogs();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
 
     }
 }

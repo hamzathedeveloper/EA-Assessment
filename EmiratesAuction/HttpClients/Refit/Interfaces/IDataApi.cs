@@ -11,5 +11,8 @@ namespace EmiratesAuction.HttpClients.Refit.Interfaces
         
         [Post("/api/Report/payment-settlement-report")]
         Task<List<PaymentSettlementReportResponse>> GetPaymentSettlementReport([Body] SettlementReportRequest request);
+
+        [Post("/api/Report/report-logs")]
+        Task<List<LogReport>> GetReportLogs();
     }
 }

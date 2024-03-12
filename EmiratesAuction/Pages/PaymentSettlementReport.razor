@@ -62,6 +62,10 @@
                 Elements = await ReportData.GetPaymentSettlementReport(req);
                 StateHasChanged();
             }
+            else
+            {
+                _Snack.Add("Date Range is not valid.", Severity.Error);
+            }
         }
         else
         {

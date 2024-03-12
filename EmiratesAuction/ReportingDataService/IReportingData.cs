@@ -7,5 +7,6 @@ namespace EmiratesAuction.ReportingDataService
     {
         Task<List<ReceivableCustomerList>> GetReceivableCustomersList(DateTime asOfDate);
         Task<List<PaymentSettlementReportResponse>> GetPaymentSettlementReport(SettlementReportRequest request);
+        Task<List<LogReport>> GetLogReports();
     }
 }

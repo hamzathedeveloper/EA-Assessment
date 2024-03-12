@@ -1,0 +1,46 @@
+﻿@page "/reportextractionlogs"
+@using EmiratesAuction.DTO.Request
+@using EmiratesAuction.DTO.Response
+@using EmiratesAuction.ReportingDataService
+@using System.ComponentModel.DataAnnotations
+@inject IReportingData ReportData
+
+
+        <MudTable Items="@Elements" FixedHeader="@fixed_header" FixedFooter="@fixed_footer" Height="@(fixed_header || fixed_footer ?"400px":"")">
+            <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Report Name</MudTh>
+        <MudTh>Extraction Timestamp</MudTh>
+        <MudTh>User Id</MudTh>
+        <MudTh>Parameters</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Customer Id">@context.Id</MudTd>
+                    <MudTd DataLabel="Report Name">@context.ReportName</MudTd>
+            <MudTd DataLabel="Extraction Timestamp">@context.ExtractionTimestamp</MudTd>
+            <MudTd DataLabel="User Id">@context.UserId</MudTd>
+            <MudTd DataLabel="Parameters">@context.Parameters</MudTd>
+                </RowTemplate>
+                <NoRecordsContent>
+                    <MudText>No matching records found</MudText>
+                </NoRecordsContent>
+                <LoadingContent>
+                    <MudText>Loading...</MudText>
+                </LoadingContent>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+            </MudTable>
+
+
+    @code {
+    private IEnumerable<LogReport> Elements = new List<LogReport>();
+    bool success;
+    string[] errors = { };
+    bool fixed_header = true;
+    bool fixed_footer = false;
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = await ReportData.GetLogReports();
+    }
+}

@@ -31,6 +31,10 @@ namespace EmiratesAuctionDataAPI.Services
             return _settlementRepository.GetAllSettlements(fromDate,toDate);
         }
 
+        public async Task<IEnumerable<ReportLog>> GetReportLogs()
+        {
+            return _reportExtraction.GetReportLogsTable();   
+        }
         
     }
 }

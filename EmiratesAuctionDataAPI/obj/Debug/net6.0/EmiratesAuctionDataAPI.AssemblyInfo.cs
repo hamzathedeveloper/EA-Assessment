@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EmiratesAuctionDataAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9950bbed8e1186568c023945d1ebac14d16a3c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5b48e616f134e0cf7b342068135bb855c41d8888")]
 [assembly: System.Reflection.AssemblyProductAttribute("EmiratesAuctionDataAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EmiratesAuctionDataAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
