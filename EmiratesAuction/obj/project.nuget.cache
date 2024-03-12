@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "dgSpecHash": "yDq0tZCyOMLS6KSTtzgo2x8gOb2+Yp8MsLGfEBIiU2JHNc+0ItkpEJ4uuw3taBs9RU7Xqu7Suwrrwz8957uxGw==",
+  "success": true,
+  "projectFilePath": "D:\\GitHub\\EA-Assessment\\EmiratesAuction\\EmiratesAuction.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.27\\microsoft.aspnetcore.authorization.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.27\\microsoft.aspnetcore.components.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.aspnetcore.components.analyzers\\6.0.27\\microsoft.aspnetcore.components.analyzers.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.aspnetcore.components.forms\\6.0.27\\microsoft.aspnetcore.components.forms.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.aspnetcore.components.web\\6.0.27\\microsoft.aspnetcore.components.web.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.27\\microsoft.aspnetcore.metadata.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\6.0.1\\microsoft.extensions.dependencyinjection.6.0.1.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.extensions.localization\\6.0.27\\microsoft.extensions.localization.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\6.0.27\\microsoft.extensions.localization.abstractions.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.4\\microsoft.extensions.logging.abstractions.6.0.4.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\microsoft.jsinterop\\6.0.27\\microsoft.jsinterop.6.0.27.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\mudblazor\\6.17.0\\mudblazor.6.17.0.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
+    "C:\\Users\\Hamza Hussain\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
