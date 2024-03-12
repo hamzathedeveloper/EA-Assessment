@@ -19,15 +19,15 @@ namespace EmiratesAuctionDataAPI.Services
             _reportExtraction = reportExtraction;
         }
 
-        public IEnumerable<GetReceivableCustomers> GetReceivableCustomers(DateTime asOfDate)
+        public async Task<IEnumerable<GetReceivableCustomers>> GetReceivableCustomers(DateTime asOfDate)
         {
-            _reportExtraction.ExtractReport("ReceivableCustomerList", DateTime.Now, asOfDate.ToString());
+           await _reportExtraction.ExtractReport("ReceivableCustomerList", DateTime.Now, asOfDate.ToString());
             return _customerRepository.GetAllCustomers(asOfDate);
         }
 
-        public IEnumerable<GetPaymentSettlementReport> GetPaymentSettlementReport(DateTime fromDate, DateTime toDate)
+        public async Task<IEnumerable<GetPaymentSettlementReport>> GetPaymentSettlementReport(DateTime fromDate, DateTime toDate)
         {
-            _reportExtraction.ExtractReport("PaymentSettlementReport", DateTime.Now, "fromDate"+ fromDate.ToString() + "toDate"+ toDate.ToString());
+            await _reportExtraction.ExtractReport("PaymentSettlementReport", DateTime.Now, "fromDate"+ fromDate.ToString() + "toDate"+ toDate.ToString());
             return _settlementRepository.GetAllSettlements(fromDate,toDate);
         }
 

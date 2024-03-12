@@ -16,16 +16,16 @@ namespace EmiratesAuctionDataAPI.Controllers
         }
 
         [HttpPost("receivable-customers")]
-        public IActionResult GetReceivableCustomers([FromBody] DateTime asOfDate)
+        public async Task<IActionResult> GetReceivableCustomers([FromBody] DateTime asOfDate)
         {
-            var receivableCustomers = _reportService.GetReceivableCustomers(asOfDate);
+            var receivableCustomers = await _reportService.GetReceivableCustomers(asOfDate);
             return Ok(receivableCustomers);
         }
 
         [HttpPost("payment-settlement-report")]
-        public IActionResult GetPaymentSettlementReport([FromBody] SettlementReportRequest request)
+        public async Task<IActionResult> GetPaymentSettlementReport([FromBody] SettlementReportRequest request)
         {
-            var settlementReport = _reportService.GetPaymentSettlementReport(request.FromDate, request.ToDate);
+            var settlementReport = await _reportService.GetPaymentSettlementReport(request.FromDate.Value, request.ToDate.Value);
             return Ok(settlementReport);
         }
     }

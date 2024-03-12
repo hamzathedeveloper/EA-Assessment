@@ -1,0 +1,71 @@
+﻿@page "/receivablecustomerlist"
+@using EmiratesAuction.DTO.Request
+@using EmiratesAuction.DTO.Response
+@using EmiratesAuction.ReportingDataService
+@using System.ComponentModel.DataAnnotations
+@inject IReportingData ReportData
+
+<MudGrid>
+    <MudItem>
+        <MudForm>
+            <MudItem xs="12">
+                <MudDatePicker @bind-Date="@selectedDate" Label="Select a date" />
+            </MudItem>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="@(() => SubmitForm())">Submit</MudButton>
+        </MudForm>
+    </MudItem>
+    <MudItem>
+        <MudTable Items="@Elements" FixedHeader="@fixed_header" FixedFooter="@fixed_footer" Height="@(fixed_header || fixed_footer ?"400px":"")">
+            <HeaderContent>
+                <MudTh>Customer Id</MudTh>
+                <MudTh>Name</MudTh>
+                <MudTh>Number of Services</MudTh>
+                <MudTh>Balance</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Customer Id">@context.CustomerId</MudTd>
+                    <MudTd DataLabel="Name">@context.Name</MudTd>
+                    <MudTd DataLabel="Number of Services">@context.NumberOfServices</MudTd>
+                    <MudTd DataLabel="Balance">@context.Balance</MudTd>
+                </RowTemplate>
+                <NoRecordsContent>
+                    <MudText>No matching records found</MudText>
+                </NoRecordsContent>
+                <LoadingContent>
+                    <MudText>Loading...</MudText>
+                </LoadingContent>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+            </MudTable>
+        </MudItem>
+    </MudGrid>
+
+
+    @code {
+    private IEnumerable<ReceivableCustomerList> Elements = new List<ReceivableCustomerList>();
+    bool success;
+    string[] errors = { };
+    bool fixed_header = true;
+    bool fixed_footer = false;
+    MudForm form;
+    private MudTable<ReceivableCustomerList> table;
+    private DateTime? selectedDate;
+
+    private async Task SubmitForm()
+    {
+        if (selectedDate.HasValue)
+        {
+            Elements = await ReportData.GetReceivableCustomersList(selectedDate.Value);
+            StateHasChanged();
+        }
+        else
+        {
+            Console.WriteLine("Please select a date.");
+        }
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        Elements = await ReportData.GetReceivableCustomersList(DateTime.Now);
+    }
+}

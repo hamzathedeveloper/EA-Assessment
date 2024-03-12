@@ -1,4 +1,5 @@
 is_global = true
+build_property.RefitInternalNamespace = EmiratesAuction
 build_property.TargetFramework = net6.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
@@ -32,6 +33,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/GitHub/EA-Assessment/EmiratesAuction/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/EA-Assessment/EmiratesAuction/Pages/PaymentSettlementReport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGF5bWVudFNldHRsZW1lbnRSZXBvcnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/GitHub/EA-Assessment/EmiratesAuction/Pages/ReceivableCustomerListReport.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjZWl2YWJsZUN1c3RvbWVyTGlzdFJlcG9ydC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/GitHub/EA-Assessment/EmiratesAuction/Shared/SurveyPrompt.razor]

@@ -43,6 +43,10 @@
             "MudBlazor": {
               "target": "Package",
               "version": "[6.17.0, )"
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [

@@ -1,0 +1,89 @@
+﻿@page "/paymentsettlementreport"
+@using EmiratesAuction.DTO.Request
+@using EmiratesAuction.DTO.Response
+@using EmiratesAuction.ReportingDataService
+@inject IReportingData ReportData
+@inject ISnackbar _Snack
+<MudGrid>
+    <MudItem>
+        <MudForm>
+            <MudItem xs="12">
+                <MudDatePicker @bind-Date="@req.FromDate" Label="FromDate" />
+                <MudDatePicker @bind-Date="@req.ToDate" Label="ToDate" />
+            </MudItem>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="@(() => SubmitForm())">Submit</MudButton>
+        </MudForm>
+    </MudItem>
+    <MudItem>
+        <MudTable Items="@Elements" FixedHeader="@fixed_header" FixedFooter="@fixed_footer" Height="@(fixed_header || fixed_footer ?"400px":"")">
+            <HeaderContent>
+                <MudTh>Customer Id</MudTh>
+                <MudTh>Customer Name</MudTh>
+                <MudTh>Service Date</MudTh>
+                <MudTh>Settlement Type</MudTh>
+                <MudTh>Settlement Id</MudTh>
+                <MudTh>Settlement Date</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Customer Id">@context.CustomerId</MudTd>
+                    <MudTd DataLabel="Customer Name">@context.CustomerName</MudTd>
+                    <MudTd DataLabel="Service Date">@context.ServiceDate</MudTd>
+                    <MudTd DataLabel="Settlement Type">@context.SettlementType</MudTd>
+                    <MudTd DataLabel="Settlement Id">@context.SettlementId</MudTd>
+                    <MudTd DataLabel="Settlement Date">@context.SettlementDate</MudTd>
+                </RowTemplate>
+                <NoRecordsContent>
+                    <MudText>No matching records found</MudText>
+                </NoRecordsContent>
+                <LoadingContent>
+                    <MudText>Loading...</MudText>
+                </LoadingContent>
+                <PagerContent>
+                    <MudTablePager PageSizeOptions="new int[]{50, 100}" />
+                </PagerContent>
+            </MudTable>
+        </MudItem>
+    </MudGrid>
+
+
+    @code {
+    private IEnumerable<PaymentSettlementReportResponse> Elements = new List<PaymentSettlementReportResponse>();
+    bool success;
+    string[] errors = { };
+    bool fixed_header = true;
+    bool fixed_footer = false;
+    SettlementReportRequest req = new SettlementReportRequest();
+    private async Task SubmitForm()
+    {
+        if (req.FromDate.HasValue && req.ToDate.HasValue)
+        {
+            if (IsDateRangeValid(req.FromDate.Value, req.ToDate.Value))
+            {
+                Elements = await ReportData.GetPaymentSettlementReport(req);
+                StateHasChanged();
+            }
+        }
+        else
+        {
+            _Snack.Add("Please select date.", Severity.Error);
+        }
+    }
+    public static bool IsDateRangeValid(DateTime fromDate, DateTime toDate)
+    {
+        // Check if toDate is not before fromDate and fromDate is not after toDate
+        return toDate.Date >= fromDate.Date && fromDate.Date <= toDate.Date;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        if (req.FromDate is null || req.ToDate is null)
+        {
+            req.FromDate = DateTime.Today.AddDays(-1);
+            req.ToDate = DateTime.Now;
+            Elements = await ReportData.GetPaymentSettlementReport(req);
+        }
+        else
+        {
+            Elements = await ReportData.GetPaymentSettlementReport(req);
+        }
+    }
+}
